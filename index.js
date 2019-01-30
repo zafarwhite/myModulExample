@@ -1,0 +1,1 @@
+var baseCurrency = 28;
