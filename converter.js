@@ -1,14 +1,17 @@
-var baseCurrency = 28;
+var Converter = function(baseCurrency) {
+    this.baseCurrencyUs = baseCurrencyUs
+}
 
-//  helper
-function roundTwoDecimal(amount) {
+Converter.prototype.roundTwoDecimal = function(amount) {
     return Math.round(amount * 100) / 100;
+}
+
+Converter.prototype.converterToUa = function(currency) {
+    return this.roundTwoDecimal(currency * this.baseCurrencyUs);
 };
 
-module.exports.converttoUa = function(currency) {
-    return roundTwoDecimal(currency * baseCurrency);
-};
+Converter.prototype.converterToUs = function(currency) {
+    return this.roundTwoDecimal(currency / this.baseCurrencyUs);
+}
 
-module.exports.converttoUs = function(currency) {
-    return roundTwoDecimal(currency / baseCurrency);
-};
+module.exports = Converter;
